@@ -31,7 +31,7 @@ class RedisService:
                     self.max_date_event = event['timestamp']
                 del event['_id']
                 event['timestamp'] = event['timestamp'].isoformat()
-                pipe.set(f"{event['reporter_id']}", json.dumps(event))     
+                pipe.set(f"{event['reporter_id']}:{event['timestamp']} ", json.dumps(event))     
             pipe.set("max_date_event", self.max_date_event.isoformat())
             pipe.execute()
             self.logger.info(f"Received {count} event(s) from MongoDB")
