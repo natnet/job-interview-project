@@ -37,6 +37,8 @@ services:
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       TOPIC_NAME: EVENTS
+    volumes:
+      - ./producer/config:/config
     networks:
       - kafka-network
 
@@ -64,6 +66,8 @@ services:
       - 27017:27017
     networks:
       - kafka-network
+    volumes:
+      - mongodb-data:/data/db
 
   redis:
     image: redis:latest
@@ -72,6 +76,8 @@ services:
       - "6379:6379"
     networks:
       - kafka-network
+    volumes:
+      - redis-data:/data
 
   mongotoredis:
     build:
@@ -88,6 +94,10 @@ services:
       MONGO_COLLECTION_NAME: "events"
     networks:
       - kafka-network
+
+volumes:
+  redis-data:
+  mongodb-data:
 
 networks:
   kafka-network:

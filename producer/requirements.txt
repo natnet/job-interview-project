@@ -2,4 +2,5 @@ kafka-python
 confluent-kafka
 six
 pytz
+pyyaml
 

@@ -1,0 +1,11 @@
+time:
+  num_of_sec_genrate_event_interval: 1
+  
+event:
+  id_start_counting_at: 1
+  id_jumps: 1
+  message: "HELLO WORLD"
+  timezone: "Asia/Jerusalem"
+
+kafka_conection:
+  attempt_to_connect_to_kafka_interval: 3
