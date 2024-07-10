@@ -18,7 +18,6 @@ def main():
         event = message.value
         event_str = event.decode('utf-8')
         json_data = json.loads(event_str)
-        #json_data = jsonpickle.decode(event_str)
         json_data['timestamp'] = datetime.datetime.fromisoformat(json_data['timestamp'])
         logger.info(f"Received event: {json_data}")
         mongodb_service.collection.insert_one(json_data)
