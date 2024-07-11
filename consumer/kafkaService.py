@@ -14,6 +14,10 @@ class KafkaService:
     logger = logging.getLogger(__name__)
 
     def __init__(self, timeout_try_to_connect_kafka, interval_connect_kafka):
+        """
+        Initialize KafkaService with connection timeout and interval.
+        Sets bootstrap_servers, topic_name, consumer, and group_id.
+        """
         self.bootstrap_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS")
         self.topic_name = os.getenv("TOPIC_NAME")
         self.consumer = None
@@ -22,6 +26,10 @@ class KafkaService:
         self.interval_connect_kafka = interval_connect_kafka
 
     def create_consumer(self):
+        """
+        Try to create a Kafka consumer.
+        Logs success or failure and returns the consumer or None.
+        """
         try:
             consumer = KafkaConsumer(
                 self.topic_name,
@@ -37,6 +45,10 @@ class KafkaService:
             return None
 
     def try_create_consumer_interval(self):
+        """
+        Attempt to create a Kafka consumer within a timeout period.
+        Retries after sleeping for the specified interval.
+        """
         time_out = 0
         while self.consumer is None:
             self.consumer = self.create_consumer()
@@ -49,4 +61,4 @@ class KafkaService:
                 time_out += 1
                 time.sleep(self.interval_connect_kafka)
                 self.logger.info("Retrying connection to Kafka...")
-        self.logger.info("Gonna start listening")
+        self.logger.info("Going to start listening")

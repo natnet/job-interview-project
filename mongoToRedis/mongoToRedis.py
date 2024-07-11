@@ -5,6 +5,10 @@ import yaml
 
 
 def main():
+    """
+    Main function to load configuration, create RedisService, and process events.
+    Reads config, initializes RedisService, and processes events in a loop.
+    """
     with open("/config/config.yaml", "r") as f:
         config = yaml.safe_load(f)
         num_of_sec_sleep = config["time"]["num_of_sec_sleep"]

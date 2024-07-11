@@ -8,6 +8,10 @@ import os
 
 
 def main():
+    """
+    Main function to load configuration, create services, and process Kafka messages.
+    Reads config, initializes Kafka consumer and MongoDB service, and processes messages.
+    """
     with open("/config/config.yaml", "r") as f:
         config = yaml.safe_load(f)
         timeout_try_to_connect_kafka = config["time"]["timeout_try_to_connect_kafka"]

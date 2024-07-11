@@ -4,6 +4,10 @@ import os
 
 class MongodbService:
     def __init__(self):
+        """
+        Initialize MongodbService with connection details from environment variables.
+        Sets up MongoDB client, database, and collection.
+        """
         mongo_link = os.getenv("MONGO_LINK")
         mongo_db = os.getenv("MONGO_DB_NAME")
         mongo_collection_name = os.getenv("MONGO_COLLECTION_NAME")

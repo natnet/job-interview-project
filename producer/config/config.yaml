@@ -6,6 +6,8 @@ event:
   id_jumps: 1
   message: "HELLO WORLD"
   timezone: "Asia/Jerusalem"
+  random_range_metric_id: [1,10]
+  random_range_metric_value: [1,100]
 
 kafka_connection:
   attempt_to_connect_to_kafka_interval: 3

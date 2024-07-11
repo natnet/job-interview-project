@@ -11,6 +11,11 @@ class RedisService:
     logger = logging.getLogger(__name__)
 
     def __init__(self):
+        """
+        Initialize RedisService with connection details from environment variables.
+        Sets up Redis connection and retrieves max_date_event.
+        Handles connection errors.
+        """
         try:
             redis_port = os.getenv("REDIS_PORT")
             self.r = redis.Redis(host="redis", port=redis_port, decode_responses=True)
@@ -25,6 +30,10 @@ class RedisService:
         self.logger.info(f"\n\nmax_date_event: {self.max_date_event}\n\n")
 
     def process_events(self):
+        """
+        Process events from MongoDB and store them in Redis.
+        Updates max_date_event and logs processed events.
+        """
         self.max_date_event
         mongo_service = MongoService()
         try:
