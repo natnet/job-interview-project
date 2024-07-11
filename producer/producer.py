@@ -15,12 +15,12 @@ def main():
     message = config['event']['message']
     tz = pytz.timezone(config['event']['timezone'])
     id_jumps = config['event']['id_jumps']
-    attempt_to_connect_to_kafka_interval = config['kafka_conection']['attempt_to_connect_to_kafka_interval']
+    attempt_to_connect_to_kafka_interval = config['kafka_connection']['attempt_to_connect_to_kafka_interval']
 
 
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
-    
+
     kafka_service = KafkaService(attempt_to_connect_to_kafka_interval)
     kafka_service.try_to_create_producer()
     logger.info(f"Will generate one unique order every {num_of_sec_genrate_event_interval} seconds")

@@ -1,0 +1,4 @@
+time:
+  timeout_try_to_connect_kafka: 10
+  interval_connect_kafka: 3
+  

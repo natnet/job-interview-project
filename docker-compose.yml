@@ -94,6 +94,8 @@ services:
       MONGO_COLLECTION_NAME: "events"
     networks:
       - kafka-network
+    volumes:
+      - ./mongoToRedis/config:/config
 
 volumes:
   redis-data:

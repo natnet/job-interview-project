@@ -17,7 +17,7 @@ class Event:
             self.message = message
             Event.counter += id_jumps
         except Exception as e:
-            Event.logger.error(f"Failed to cushilirabak event {e}")
+            Event.logger.error(f"Failed to create event {e}")
 
     def to_dict(self):
         return {
