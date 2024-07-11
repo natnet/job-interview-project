@@ -4,11 +4,13 @@ import pytz
 import yaml
 import logging
 
+
 class Event:
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
     counter = 0
-    def __init__(self, tz, reporter_id_start_at ,message ,id_jumps):
+
+    def __init__(self, tz, reporter_id_start_at, message, id_jumps):
         try:
             self.metric_id = random.randint(1, 10)
             self.metric_value = random.randint(1, 100)
@@ -25,5 +27,5 @@ class Event:
             "timestamp": self.timestamp,
             "message": self.message,
             "metric_value": self.metric_value,
-            "metric_id": self.metric_id
+            "metric_id": self.metric_id,
         }
