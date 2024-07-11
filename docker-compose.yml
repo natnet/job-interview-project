@@ -55,6 +55,7 @@ services:
       MONGO_LINK: "mongodb://mongodb:27017/"
       MONGO_DB_NAME: "test"
       MONGO_COLLECTION_NAME: "events"
+      GROUP_ID: "NATAN_GROUP"
 
     networks:
       - kafka-network

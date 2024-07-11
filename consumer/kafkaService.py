@@ -13,10 +13,11 @@ class KafkaService:
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
     
-    def __init__(self,timeout_try_to_connect_kafka,interval_connect_kafka):
+    def __init__(self,timeout_try_to_connect_kafka,interval_connect_kafka,group_id):
         self.bootstrap_servers = os.getenv('KAFKA_BOOTSTRAP_SERVERS')
         self.topic_name = os.getenv('TOPIC_NAME')
         self.consumer = None
+        self.group_id = os.getenv('GROUP_ID')
         self.timeout_try_to_connect_kafka = timeout_try_to_connect_kafka
         self.interval_connect_kafka = interval_connect_kafka
 
@@ -25,7 +26,7 @@ class KafkaService:
             consumer = KafkaConsumer(
                 self.topic_name,
                 bootstrap_servers=self.bootstrap_servers,
-                group_id='group_id',
+                group_id=self.group_id,
                 auto_offset_reset='earliest',
                 enable_auto_commit=False,
                 )
