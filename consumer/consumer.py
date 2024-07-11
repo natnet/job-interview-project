@@ -10,6 +10,7 @@ def main():
     with open('/config/config.yaml', 'r') as f:
         config = yaml.safe_load(f)
         timeout_try_to_connect_kafka = config['time']['timeout_try_to_connect_kafka']
+        interval_connect_kafka = config['time']['interval_connect_kafka']
 
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
