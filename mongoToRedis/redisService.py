@@ -22,6 +22,7 @@ class RedisService:
         except redis.ConnectionError as e:
             self.logger.error(f"Error connecting to Redis: {e}")
             raise
+        
         self.max_date_event = (
             datetime.datetime.fromisoformat(self.r.get("max_date_event"))
             if self.r.get("max_date_event") is not None
