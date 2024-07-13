@@ -1,11 +1,11 @@
 time:
-  num_of_sec_genrate_event_interval: 0.4
+  num_of_sec_genrate_event_interval: 1
   
 event:
   id_start_counting_at: 1
   id_jumps: 1
   message: "HELLO WORLD"
-  timezone: "Asia/Jerusalem"
+  timezone: "Europe/Madrid"
   random_range_metric_id: [1,10]
   random_range_metric_value: [1,100]
 
