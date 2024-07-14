@@ -1,4 +1,4 @@
-#prestart 
+# prestart 
 docker-compose create
 
 # Step i: Start Kafka and zookeeper

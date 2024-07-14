@@ -8,9 +8,13 @@ kafka-topics --create --topic ex_topic --bootstrap-server localhost:9092 --parti
 kafka-topics --list --bootstrap-server localhost:9092
 
 # Consume messages from the 'EVENTS' topic from the beginning
-kafka-console-consumer --topic EVENTS --bootstrap-server localhost:9092 --from-beginning
+kafka-console-consumer --topic ex_topic --bootstrap-server localhost:9092 --from-beginning
 
 #delete events topic
 kafka-topics --delete --topic EVENTS --bootstrap-server localhost:9092
+
 #delete ex_topic topic
 kafka-topics --delete --topic ex_topic --bootstrap-server localhost:9092
+
+#produce message
+kafka-console-producer --topic ex_topic --broker-list localhost:9092
