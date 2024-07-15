@@ -12,7 +12,7 @@ use test
 db.dropDatabase()
 
 # Create a new collection named 'ex_collection'
-db.createCollection("ex_collection")
+db.createCollection("events")
 
 # insert a new value to ex_collection
 db.ex_collection.insert({ name: "Alice", age: 25 })

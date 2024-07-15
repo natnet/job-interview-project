@@ -3,7 +3,7 @@ import yaml
 import logging
 from Event import Event
 from kafka_service import KafkaService
-
+from event_facory import Event_factory
 
 def main():
     """
@@ -25,11 +25,13 @@ def main():
         f"Will generate one unique order every {num_of_sec_generate_event_interval} seconds"
     )
 
+    event_factory = Event_factory(event_config)
+
     while True:
         try:
-            event = Event(event_config)
-            logger.info(f"Sent event")
+            event = event_factory.create_event()
             kafka_service.send_event_to_kafka(event)
+            logger.info(f"Sent event")
             time.sleep(num_of_sec_generate_event_interval)
         except Exception as e:
             logger.error(f"Failed to send event {e}")
