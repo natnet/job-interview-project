@@ -24,7 +24,7 @@ db.ex_collection.find({ name: "Alice" })
 db.ex_collection.update({ name: "Alice" }, { $set: { age: 26 } })
 
 # delete collection on collection
-db.mycollection.remove({ name: "Alice" })
+db.ex_collection.remove({ name: "Alice" })
 
 # Show all documents in the 'events' collection
 db.events.find().pretty()

@@ -7,7 +7,7 @@ kafka-topics --create --topic ex_topic --bootstrap-server localhost:9092 --parti
 # List all Kafka topics
 kafka-topics --list --bootstrap-server localhost:9092
 
-# Consume messages from the 'EVENTS' topic from the beginning
+# Consume messages from the 'ex_topic' topic from the beginning
 kafka-console-consumer --topic ex_topic --bootstrap-server localhost:9092 --from-beginning
 
 #delete events topic

@@ -42,5 +42,5 @@ class Event:
             "timestamp": self.timestamp,
             "message": self.message,
             "metric_value": self.metric_value,
-            "metric_id": self.metric_id,
+            "metric_id": self.metric_id
         }
