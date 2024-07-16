@@ -2,7 +2,6 @@ import random
 import datetime
 import pytz
 import yaml
-from IEvent import IEvent
 
 
 class Event:
