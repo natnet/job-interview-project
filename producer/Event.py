@@ -5,8 +5,14 @@ import yaml
 from IEvent import IEvent
 
 
-class Event(IEvent):
+class Event:
     def __init__(self, reporter_id, timestamp, message, metric_value, metric_id):
+        """
+        Initialize an Event instance.
+
+        Parameters:
+        reporter_id (int),timestamp (str),message (str),metric_value (int),metric_id (int).
+        """
         self.reporter_id = reporter_id
         self.timestamp = timestamp
         self.message = message

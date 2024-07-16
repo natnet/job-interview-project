@@ -21,7 +21,6 @@ class MongoService:
         except errors.ConnectionError as e:
             logger.error(f"Error connecting to MongoDB: {e}")
             raise
-            self.query = {"timestamp": {"$gt": max_date_event}}
 
     def get_filtered_collection(self, max_date_event):
         """
@@ -29,4 +28,5 @@ class MongoService:
         Returns documents with a timestamp greater than max_date_event.
         """
         query = {"timestamp": {"$gt": max_date_event}}
-        return self.collection.find(query)
+        return self.collection.find(query).sort("timestamp", 1)
+

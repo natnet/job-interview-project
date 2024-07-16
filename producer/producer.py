@@ -3,7 +3,7 @@ import yaml
 import logging
 from Event import Event
 from kafka_service import KafkaService
-from event_facory import Event_factory
+from event_factory import Event_factory
 
 def main():
     """

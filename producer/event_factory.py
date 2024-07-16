@@ -10,11 +10,23 @@ class Event_factory:
     logger = logging.getLogger(__name__)
 
     def __init__(self, config):
+        """
+        Initialize the EventFactory with a given configuration.
+
+        Parameters:
+        config (dict): Configuration dictionary for creating events.
+        """
         self.event_config = config
         self.counter = 0
         self.tz = pytz.timezone(self.event_config["timezone"])
        
     def create_event(self):
+        """
+        Create an Event instance with random values based on the configuration.
+
+        Returns:
+        Event: A new Event instance with the configured values.
+        """
         try:
             metric_id = random.randint(
                 self.event_config["random_range_metric_id"][0],

@@ -15,3 +15,5 @@ class MongodbService:
         self.client = MongoClient(mongo_link)
         self.db = self.client[mongo_db]
         self.collection = self.db[mongo_collection_name]
+        self.collection.create_index([('timestamp', 1)])
+
